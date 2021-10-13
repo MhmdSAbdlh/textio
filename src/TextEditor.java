@@ -14,8 +14,10 @@ public class TextEditor extends JFrame implements ActionListener{
 	private Color textAC = new Color(184,197,254);
 	private Font textF = new Font("Arial",Font.PLAIN,22);
 	private Font btnF = new Font("Arial",Font.BOLD,20);
-	private Font labelF = new Font("Tahoma",Font.BOLD,25);
+	private Font labelF = new Font("Tahoma",Font.BOLD,23);
 	
+	private boolean btnRTL = false;
+	private String oldText;
 	private String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 	private JComboBox<String> fontCB = new JComboBox<String>(fonts);
 	private String[] fontsStyle = {"PLAIN","BOLD","ITALIC"};
@@ -28,6 +30,7 @@ public class TextEditor extends JFrame implements ActionListener{
 	private JButton cutText = new JButton("CUT");
 	private JButton pasteText = new JButton("PASTE");
 	private JButton rtlText = new JButton("EN->AR");
+	private JButton wrongKey = new JButton("FIX AR");
 	private JButton toUpper = new JButton("UPPER");
 	private JButton toLower = new JButton("LOWER");
 	private JButton spongebob = new JButton("SpOnGe");
@@ -91,12 +94,14 @@ public class TextEditor extends JFrame implements ActionListener{
 		JLabel fontName = new JLabel("FONT");
 		fontName.setFont(labelF);
 		fontName.setForeground(lightC);
+		fontName.setPreferredSize(new Dimension(68, 30));
 		JLabel fontStyle = new JLabel("STYLE");
 		fontStyle.setFont(labelF);
 		fontStyle.setForeground(lightC);
 		JLabel fontSize = new JLabel("SIZE");
 		fontSize.setFont(labelF);
 		fontSize.setForeground(lightC);
+		fontSize.setPreferredSize(new Dimension(60, 30));
 		JLabel guideTitle = new JLabel("For Converstion between English and Arabic");
 		guideTitle.setFont(labelF);
 		guideTitle.setForeground(lightC);
@@ -111,21 +116,20 @@ public class TextEditor extends JFrame implements ActionListener{
 		fontCB.setForeground(darkC);
 		fontCB.setBackground(lightC);
 		fontCB.setSelectedItem("Arial");
-		fontCB.setPreferredSize(new Dimension(130, 30));
+		fontCB.setPreferredSize(new Dimension(110, 30));
 		fontCB.addActionListener(this);
 		fontStyleCB.setFont(textF);
 		fontStyleCB.setForeground(darkC);
 		fontStyleCB.setBackground(lightC);
 		fontStyleCB.setSelectedItem("PLAIN");
-		fontStyleCB.setPreferredSize(new Dimension(130, 30));
+		fontStyleCB.setPreferredSize(new Dimension(100, 30));
 		fontStyleCB.addActionListener(this);
 		
 		//Spinner
 		fontSizeS.setFont(textF);
 		fontSizeS.setPreferredSize(new Dimension(50, 30));
 		fontSizeS.setValue(22);
-		fontSizeS.addChangeListener(e->
-			textArea.setFont(new Font(textArea.getFont().getFamily(),textArea.getFont().getStyle(),(int) fontSizeS.getValue())));
+		fontSizeS.addChangeListener(e->textArea.setFont(new Font(textArea.getFont().getFamily(),textArea.getFont().getStyle(),(int) fontSizeS.getValue())));
 		
 		//Buttons
 		colorBtn.setFocusable(false);
@@ -133,13 +137,19 @@ public class TextEditor extends JFrame implements ActionListener{
 		colorBtn.setBackground(lightC);
 		colorBtn.setForeground(darkC);
 		colorBtn.setFont(btnF);
-		colorBtn.setPreferredSize(new Dimension(120, 40));
+		colorBtn.setPreferredSize(new Dimension(110, 40));
 		rtlText.setFocusable(false);
 		rtlText.addActionListener(this);
 		rtlText.setBackground(lightC);
 		rtlText.setForeground(darkC);
 		rtlText.setFont(btnF);
-		rtlText.setPreferredSize(new Dimension(130, 40));
+		rtlText.setPreferredSize(new Dimension(110, 40));
+		wrongKey.setFocusable(false);
+		wrongKey.addActionListener(this);
+		wrongKey.setBackground(lightC);
+		wrongKey.setForeground(darkC);
+		wrongKey.setFont(btnF);
+		wrongKey.setPreferredSize(new Dimension(110, 40));
 		cutText.setFocusable(false);
 		cutText.addActionListener(this);
 		cutText.setBackground(lightC);
@@ -198,6 +208,7 @@ public class TextEditor extends JFrame implements ActionListener{
 		topRow.add(fontSizeS);
 		topRow.add(colorBtn);
 		topRow.add(rtlText);
+		topRow.add(wrongKey);
 		
 		//Add to bottom Panel
 		bottomRow.add(cutText);
@@ -221,7 +232,7 @@ public class TextEditor extends JFrame implements ActionListener{
 				+ "• Title: change the text to correctly case.\n"
 				+ "• Sponge: change the text to SpOnGeBoB style.\n"
 				+ "• Strip: remove the white spaces.\n", "HELP", 1));
-		about.addActionListener(e->JOptionPane.showMessageDialog(null, "Credit with LOVE by MhmdSAbdlh ©", "ABOUT", 1));
+		about.addActionListener(e->JOptionPane.showMessageDialog(null, "Credit & Designed by MhmdSAbdlh ©", "ABOUT", 1));
 		file.add(open);
 		file.add(save);
 		file.add(exit);
@@ -261,11 +272,39 @@ public class TextEditor extends JFrame implements ActionListener{
 			textArea.copy();
 		}
 
-		//Right to left and inverse
+		//English to Arabic
 		if(e.getSource() == rtlText) {
+			if(!btnRTL) {
+				oldText = textArea.getText();
 				textArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 				textArea.setText(textArea.getText().toLowerCase());
 				engToArabic();
+				rtlText.setText("Back");
+				btnRTL = true;
+			}
+			else {
+				textArea.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+				textArea.setText(oldText);
+				btnRTL = false;
+				rtlText.setText("EN->AR");
+				}
+			}
+		//Fix wrong keyboard selected
+		if(e.getSource() == wrongKey) {
+			if(!btnRTL) {
+				oldText = textArea.getText();
+				textArea.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+				textArea.setText(textArea.getText());
+				wrongKeyBoard();
+				wrongKey.setText("Back");
+				btnRTL = true;
+			}
+			else {
+				textArea.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+				textArea.setText(oldText);
+				btnRTL = false;
+				wrongKey.setText("FIX AR");
+				}
 			}
 		
 		//Cut All Text
@@ -547,4 +586,132 @@ public class TextEditor extends JFrame implements ActionListener{
 			break;
 			}
 	}
+
+	private void wrongKeyBoard() {
+		
+		char[] toArabic = textArea.getText().toCharArray();
+		
+		for(int i=0;i<toArabic.length;i++)
+			switch (toArabic[i]) {
+			case 'q':
+				toArabic[i] = 'ض';
+				break;
+			case 'w':
+				toArabic[i] = 'ص';
+				break;
+			case 'W':
+				toArabic[i] = 'ً';
+				break;
+			case 'e':
+				toArabic[i] = 'ث';
+				break;
+			case 'r':
+				toArabic[i] = 'ق';
+				break;
+			case 't':
+				toArabic[i] = 'ف';
+				break;
+			case 'y':
+				toArabic[i] = 'غ';
+				break;
+			case 'u':
+				toArabic[i] = 'ع';
+				break;
+			case 'i':
+				toArabic[i] = 'ه';
+				break;
+			case 'o':
+				toArabic[i] = 'خ';
+				break;
+			case 'p':
+				toArabic[i] = 'ح';
+				break;
+			case '[':
+				toArabic[i] = 'ج';
+				break;
+			case ']':
+				toArabic[i] = 'د';
+				break;
+			case 'a':
+				toArabic[i] ='ش';
+				break;
+			case 's':
+				toArabic[i] = 'س';
+				break;
+			case 'd':
+				toArabic[i] = 'ي';
+				break;
+			case 'f':
+				toArabic[i] = 'ب';
+				break;
+			case 'g':
+				toArabic[i] = 'ل';
+				break;
+			case 'h':
+				toArabic[i] = 'ا';
+				break;
+			case 'H':
+				toArabic[i] = 'أ';
+				break;
+			case 'j':
+				toArabic[i] = 'ت';
+				break;
+			case 'k':
+				toArabic[i] = 'ن';
+				break;
+			case 'l':
+				toArabic[i] = 'م';
+				break;
+			case ';':
+				toArabic[i] = 'ك';
+				break;
+			case '\'':
+				toArabic[i] = 'ط';
+				break;
+			case 'z':
+				toArabic[i] = 'ئ';
+				break;
+			case 'x':
+				toArabic[i] = 'ء';
+				break;
+			case 'c':
+				toArabic[i] = 'ؤ';
+				break;
+			case 'v':
+				toArabic[i] = 'ر';
+				break;
+			case 'b':
+				toArabic[i] = 'ل';
+				break;
+			case 'n':
+				toArabic[i] = 'ى';
+				break;
+			case 'N':
+				toArabic[i] = 'آ';
+				break;
+			case 'm':
+				toArabic[i] = 'ة';
+				break;
+			case '?':
+				toArabic[i] = 'ظ';
+				break;
+			case ',':
+				toArabic[i] = 'و';
+				break;
+			case '.':
+				toArabic[i] = 'ز';
+				break;
+			case '/':
+				toArabic[i] = 'ظ';
+				break;
+			case '`':
+				toArabic[i] = 'ذ';
+				break;
+			default:
+				break;
+			}
+		textArea.setText(String.copyValueOf(toArabic));
+	}
+
+
 }
