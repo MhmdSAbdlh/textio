@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Textio</string>
+    <string name="guide">
+        1 : ظ \u0009\u0009\u0009\u0009
+        2 : ء \u0009\u0009\u0009\u0009
+        3 : ع \u0009\u0009\u0009\u0009
+        4 : ض \u0009\u0009\u0009\u0009
+        5 : خ \u0009\u0009\u0009\u0009
+        6 : ط \u0009\u0009\u0009\u0009
+        7 : ح \u0009\u0009\u0009\u0009
+        8 : غ \u0009\u0009\u0009\u0009
+        9 : ص \u0009\u0009\u0009\u0009
+        0 : ذ \u0009\u0009\u0009\u0009
+        aa:ا \u0009\u0009\u0009\u0009
+        ee:ي
+
+    </string>
+    <string name="enter_the_text_here">Enter The Text Here</string>
+    <string name="english_to_arabic">English to Arabic</string>
+    <string name="cut">cut</string>
+    <string name="copy">Copy</string>
+    <string name="paste">Paste</string>
+    <string name="strip">Strip</string>
+    <string name="uppercase">UpperCase</string>
+    <string name="spongebob">SpongeBob</string>
+    <string name="lowercase">LowerCase</string>
+    <string name="titlecase">TitleCase</string>
+    <string name="for_conversion_between_english_and_arabic">For Converstion between English and Arabic</string>
+    <string name="created_and_designed_by_mhmdsabdlh">Created and Designed By MhmdSAbdlh</string>
+</resources>

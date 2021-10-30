@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textio</title>
+    <link rel="icon" href="Source Code/Java/text.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Title -->
+    <div id = "title">Textio - Intelligent text Editor!</div>
+
+    <!-- Body -->
+
+    <div id="topbtns"> 
+        Color&nbsp;
+        <input type="color" id="html5colorpicker" onchange="clickColor()">
+        Size&nbsp;
+        <input type="number" id="fontSize" onchange="clickSize()" value="18" min="1">
+    </div>
+
+    <div >
+        <textarea autofocus id="textArea"></textarea>
+    </div>
+
+    <div id="bottomBtns">
+        <button id="btn" onclick="engToAr()">En→Ar</button>
+        <button id="btn2" onclick="fixAr()">Fix Arabic</button>
+        <button id="btn3" onclick="stripT()">Trim Text</button>
+    </div>
+
+    <div id="middleBtns">
+        <button id="upperC" onclick="upperC()">UPPER</button>
+        <button id="lowerC" onclick="lowerC()">lower</button>
+        <button id="titleC" onclick="titleC()">Title</button>
+        <button id="spongbobC" onclick="funnyC()">FuNnY</button>
+    </div>
+    
+    <!-- Separator -->
+    <div id ="title"></div>
+
+    <!-- Get The App -->
+    <div id = "sub-title">GET THE APP</div>
+
+    <div id="get-app" >
+        <a href="https://github.com/MhmdSAbdlh/dating/releases/download/new/Dating.apk">
+            <img src="img/playstore.png">
+        </a>
+    
+        <a href="https://github.com/MhmdSAbdlh/dating/releases/download/new/Dating.exe">
+            <img src="img/windows.png">
+        </a>
+    
+        <a href="https://github.com/MhmdSAbdlh/dating/tree/main/Source%20Code">
+            <img src="img/sourcecode.png">
+        </a>
+    </div>
+    
+    <!-- Credit -->
+    <h6><div id="credit">Created & Designed by MhmdSAbdlh</div></h6>
+
+    <script src="js/enToAr.js"></script>
+    <script src="js/fixLayout.js"></script>
+    <script src="js/casesFunction.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+body{
+    background-color: #001E6C ;
+}
+
+#title{
+    color: rgb(184,197,254);
+    font-weight: bolder;
+    font-size: 30px ;
+    margin: 2% 5% 0 5%;
+    border-bottom: 5px solid #5089C6;
+    display: block;
+}
+
+#sub-title{
+    color: blanchedalmond;
+    font-weight: bold;
+    font-size: 25px ;
+    margin: 2% 5% 0 5%;
+}
+
+#textArea{
+    margin: 2% 5% 0% 5%;
+    min-width: 80%;
+    min-height: 200px;
+    resize: none;
+    color: #001E6C;
+    font-size: 18px;
+    border-radius: 3px;
+    border-color:rgb(184,197,254);
+    border-width: 2px;
+}
+
+#fontSize{
+    height: 25px;
+    margin-right: 2%;
+    max-width: 30px;
+}
+
+#html5colorpicker{
+    height: 30px;
+    max-width: 30px;
+    margin-right: 2%;
+}
+
+#btn, #btn2, #btn3, #upperC, #lowerC, #titleC, #spongbobC{
+    height: 40px;
+    width: 80px;
+    font-size: auto;
+    margin-right: 2%;
+    font-weight: bolder;
+    color: #001E6C;
+    background-color: #5089C6;
+    border-radius: 5px;
+    border-color:black;
+    border-width: 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+#topbtns, #bottomBtns, #middleBtns{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    color: #5089C6;
+    font-size: x-large;
+}
+
+#btn:hover, #btn2:hover, #btn3:hover, #upperC:hover, #lowerC:hover, #titleC:hover, #spongbobC:hover{
+    box-shadow: 0px 0px 5px wheat;
+    color: wheat;
+}
+
+#get-app{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+#credit{
+    width: 100%;
+    color: white;
+    font-style: italic;
+    font-size: 12px;
+    text-align: center;
+    text-shadow: 2px 3px 5px black;
+}
