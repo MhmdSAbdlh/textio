@@ -12,57 +12,73 @@
 <body>
 
     <!-- Title -->
-    <div id = "title">Textio - Intelligent text Editor!</div>
+    <div class="title">Textio - Intelligent text Editor!</div>
 
     <!-- Body -->
 
-    <div id="topbtns"> 
-        Color&nbsp;
-        <input type="color" id="html5colorpicker" onchange="clickColor()">
-        Size&nbsp;
-        <input type="number" id="fontSize" onchange="clickSize()" value="18" min="1">
+    <div class="rowDiv"> 
+        <label for="html5colorpicker">Color&nbsp;</label>
+        <input class="topDiv" type="color" id="html5colorpicker" onchange="changeColor()" value="#001E6C">
+        <label for="fontSize">Size&nbsp;</label>
+        <input class="topDiv" type="number" id="fontSize" onchange="changeSize()" value="18" min="1">
+        <label for="fontName">Font&nbsp;</label>
+        <select class="topDiv" id="fontName" onchange="changeFont()">
+            <option value="" selected="selected" hidden="hidden">Choose here</option>
+            <option value="Calibri">Calibri</option>
+            <option value="Impact">Impact</option>
+            <option value="Ink Free">Ink Free</option>
+            <option value="Open Sans">Open Sans</option>
+            <option value="Serif">Serif</option>
+        </select>
+        <label for="italicS" id="italicLabel">&nbsp;Italic&nbsp;</label>
+        <input type="checkbox" id="italicS" onclick="italicS()" value="italic" hidden>
+        <label for="boldS" id="boldLabel">&nbsp;Bold&nbsp;</label>
+        <input type="checkbox" id="boldS" onclick="boldS()" value="bold" hidden>
+        <label for="underlineS" id="undelineLabel">&nbsp;Underline&nbsp;</label>
+        <input type="checkbox" id="underlineS" onclick="underlineS()" value="underline" hidden>
     </div>
 
     <div >
         <textarea autofocus id="textArea"></textarea>
     </div>
 
-    <div id="bottomBtns">
-        <button id="btn" onclick="engToAr()">En→Ar</button>
-        <button id="btn2" onclick="fixAr()">Fix Arabic</button>
-        <button id="btn3" onclick="stripT()">Trim Text</button>
+    <div class="rowDiv">
+        <button class="btns" id="btn" onclick="engToAr()">En→Ar</button>
+        <button class="btns" id="btn2" onclick="fixAr()">Fix Arabic</button>
+        <button class="btns" id="btn3" onclick="stripT()">Trim Text</button>
     </div>
 
-    <div id="middleBtns">
-        <button id="upperC" onclick="upperC()">UPPER</button>
-        <button id="lowerC" onclick="lowerC()">lower</button>
-        <button id="titleC" onclick="titleC()">Title</button>
-        <button id="spongbobC" onclick="funnyC()">FuNnY</button>
+    <div class="rowDiv">
+        <button class="btns" id="upperC" onclick="upperC()">UPPER</button>
+        <button class="btns" id="lowerC" onclick="lowerC()">lower</button>
+        <button class="btns" id="titleC" onclick="titleC()">Title</button>
+        <button class="btns" id="spongbobC" onclick="funnyC()">FuNnY</button>
     </div>
     
     <!-- Separator -->
-    <div id ="title"></div>
+    <div class="title"></div>
 
     <!-- Get The App -->
-    <div id = "sub-title">GET THE APP</div>
+    <div class="sub-title">GET THE APP</div>
 
-    <div id="get-app" >
-        <a href="https://github.com/MhmdSAbdlh/Textio/releases/download/new/textio.apk">
+    <div class="rowDiv" >
+        <a class="imgRef" href="https://github.com/MhmdSAbdlh/Textio/releases/download/new/textio.apk">
             <img src="img/playstore.png">
         </a>
     
-        <a href="https://github.com/MhmdSAbdlh/Textio/releases/download/new/Textio.exe">
+        <a class="imgRef" href="https://github.com/MhmdSAbdlh/Textio/releases/download/new/Textio.exe">
             <img src="img/windows.png">
         </a>
     
-        <a href="https://github.com/MhmdSAbdlh/Textio/archive/refs/tags/new.zip">
+        <a class="imgRef" href="https://github.com/MhmdSAbdlh/Textio/archive/refs/tags/new.zip">
             <img src="img/sourcecode.png">
         </a>
     </div>
     
     <!-- Credit -->
-    <h6><div id="credit">Created & Designed by MhmdSAbdlh</div></h6>
+    <h6><div class="credit">Created & Designed by MhmdSAbdlh</div></h6>
 
+    <script src="js/styleChange.js"></script>
     <script src="js/enToAr.js"></script>
     <script src="js/fixLayout.js"></script>
     <script src="js/casesFunction.js"></script>

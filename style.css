@@ -2,7 +2,7 @@ body{
     background-color: #001E6C ;
 }
 
-#title{
+.title{
     color: rgb(184,197,254);
     font-weight: bolder;
     font-size: 30px ;
@@ -11,11 +11,38 @@ body{
     display: block;
 }
 
-#sub-title{
-    color: blanchedalmond;
-    font-weight: bold;
-    font-size: 25px ;
-    margin: 2% 5% 0 5%;
+.rowDiv{    
+    display:block;
+    text-align: center;
+    line-height: 50px;  
+    margin-top: 2%;
+    color: rgb(184,197,254);
+    font-size: x-large;
+}
+
+.topDiv{
+    height: 25px;
+    text-align: center;
+    margin-right: 5%;
+    max-width: 40px;
+    background-color: rgb(184,197,254);
+    color: #001E6C;
+    border: .1px solid transparent;
+    border-width: .1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+#fontName{
+    max-width: fit-content;
+}
+
+#undelineLabel, #boldLabel, #italicLabel{
+    margin-left: 2%;
+    background-color: #5089C6;
+    border-radius: 5px;
+    border-color:black;
+    border-width: 1px;
 }
 
 #textArea{
@@ -30,22 +57,9 @@ body{
     border-width: 2px;
 }
 
-#fontSize{
-    height: 25px;
-    margin-right: 2%;
-    max-width: 30px;
-}
-
-#html5colorpicker{
-    height: 30px;
-    max-width: 30px;
-    margin-right: 2%;
-}
-
-#btn, #btn2, #btn3, #upperC, #lowerC, #titleC, #spongbobC{
+.btns{
     height: 40px;
-    width: 80px;
-    font-size: auto;
+    width: 100px;
     margin-right: 2%;
     font-weight: bolder;
     color: #001E6C;
@@ -53,35 +67,48 @@ body{
     border-radius: 5px;
     border-color:black;
     border-width: 1px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
-#topbtns, #bottomBtns, #middleBtns{
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2%;
-    color: #5089C6;
-    font-size: x-large;
-}
-
-#btn:hover, #btn2:hover, #btn3:hover, #upperC:hover, #lowerC:hover, #titleC:hover, #spongbobC:hover{
-    box-shadow: 0px 0px 5px wheat;
+.btns:hover{
+    box-shadow: 0px 0px 5px rgb(184,197,254);
     color: wheat;
 }
 
-#get-app{
+.disabledBtn{
+    height: 40px;
+    width: 80px;
+    font-size: auto;
+    margin-right: 2%;
+    font-weight: bolder;
+    color: white;
+    background-color: rgb(107, 7, 7);
+    border-radius: 5px;
+    border-color:black;
+    border-width: 1px;
+}
+
+.disabledBtn:hover{
+    box-shadow: 0px 0px 5px tomato;
+    color: wheat;
+}
+
+.sub-title{
+    color: rgb(184,197,254);
+    font-weight: bold;
+    font-size: 25px ;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    margin-top: 2%  ;
 }
 
-#credit{
+.imgRef{
+    text-decoration: none;
+}
+
+.credit{
     width: 100%;
     color: white;
     font-style: italic;

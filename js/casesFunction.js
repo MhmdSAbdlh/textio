@@ -19,16 +19,17 @@ function titleC(){
     let i=0;
 	let textC = Array.from(document.getElementById('textArea').value);
     textC[i] = textC[i].toUpperCase();
-    i++;
-	while(i<textC.length-1) {
+	i++;
+	while(i<textC.length) {
 		if(textC[i] == "." || textC[i] == "\n" || textC[i] == "?" || textC[i] == "!") {
-				while(textC[i+1] == " " && i<textC.length-2){
-                    i++;
-                }
-				textC[i+1] = textC[i+1].toUpperCase();
-				}
+			i++;
+			while((textC[i] == " " || textC[i] == "." || textC[i] == "\n" || textC[i] == "?" || textC[i] == "!") && i<textC.length-1){
+                i++;
+            }
+			textC[i] = textC[i].toUpperCase();
+		}
 		else {
-			textC[i+1] = textC[i+1].toLowerCase();
+			textC[i] = textC[i].toLowerCase();
 			}
 		i++;
 	}
