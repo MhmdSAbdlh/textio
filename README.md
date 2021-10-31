@@ -4,6 +4,7 @@ JAVA, APK & JavaScript Project
 A Simple app to your text
 
 Function:
+
 	1- You can convert from English to Arabic Directly(!!!THERE IS GUIDE FOR SPECIAL CASE)
 	
 	2- If you forget to switch keyboard layout,you can directly convert your text to Arabic
@@ -13,6 +14,7 @@ Function:
 	4- Directly switch between UPPERCASE, lowercase, TitleCase & FuNnY CaSe
 
 Available:
+
 	1- Web Version
 	
 	2- Windows (You need Java SDK)
