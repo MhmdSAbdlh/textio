@@ -11,7 +11,9 @@ Function:
 	
 	3- Eliminate the white space with TRIM
 	
-	4- Directly switch between UPPERCASE, lowercase, TitleCase & FuNnY CaSe
+	4- Directly switch between UPPERCASE, lowercase, TitleCase, CapitalizeCase & FuNnY CaSe
+	
+	5- Encrypt & Decrypt text with special key.
 
 Available:
 
