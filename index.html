@@ -16,6 +16,7 @@
 
     <!-- Body -->
 
+    <!--Top Row-->
     <div class="rowDiv"> 
         <label for="html5colorpicker">Color&nbsp;</label>
         <input class="topDiv" type="color" id="html5colorpicker" onchange="changeColor()" value="#001E6C">
@@ -42,6 +43,7 @@
         <textarea autofocus id="textArea"></textarea>
     </div>
 
+    <!--Bottom Row-->
     <div class="rowDiv">
         <button class="btns" id="btn" onclick="engToAr()">En→Ar</button>
         <button class="btns" id="btn2" onclick="fixAr()">Fix Arabic</button>
@@ -52,7 +54,20 @@
         <button class="btns" id="upperC" onclick="upperC()">UPPER</button>
         <button class="btns" id="lowerC" onclick="lowerC()">lower</button>
         <button class="btns" id="titleC" onclick="titleC()">Title</button>
+        <button class="btns" id="capitalizeC" onclick="capitalizeC()">Capitalize</button>
         <button class="btns" id="spongbobC" onclick="funnyC()">FuNnY</button>
+    </div>
+    
+    <!-- Separator -->
+    <div class="title"></div>
+
+    <div class="sub-title">ENCRYPTION</div>
+
+    <div class="rowDiv">
+        <button class="btns" id="encBtn" onclick="encBtn()">Encrypt</button>
+        <button class="btns" id="decBtn" onclick="decBtn()">Decrypt</button>
+        <button class="btns" id="newKeyBtn" onclick="newKeyBtn()">New Key</button>
+        <input type="text" id="currentKey">
     </div>
     
     <!-- Separator -->
@@ -82,5 +97,6 @@
     <script src="js/enToAr.js"></script>
     <script src="js/fixLayout.js"></script>
     <script src="js/casesFunction.js"></script>
+    <script src="js/encryption.js"></script>
 </body>
 </html>

@@ -37,7 +37,7 @@ body{
     max-width: fit-content;
 }
 
-#undelineLabel, #boldLabel, #italicLabel{
+#undelineLabel, #boldLabel, #italicLabel, #currentKey{
     margin-left: 2%;
     background-color: #5089C6;
     border-radius: 5px;
