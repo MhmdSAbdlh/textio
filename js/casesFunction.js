@@ -36,6 +36,26 @@ function titleC(){
     document.getElementById('textArea').value = textC.join("");
 }
 
+//CapitalizeCase Function
+function capitalizeC(){
+	stripT();
+    let i=0;
+	let textC = Array.from(document.getElementById('textArea').value);
+    textC[i] = textC[i].toUpperCase();
+	i++;
+	while(i<textC.length) {
+		while((textC[i] == " " || textC[i] == "." || textC[i] == "\n" || textC[i] == "?" || textC[i] == "!") && i<textC.length-1){
+                i++;
+        }
+		if(textC[i-1] == " " || textC[i-1] == "." || textC[i-1] == "\n" || textC[i-1] == "?" || textC[i-1] == "!")
+			textC[i] = textC[i].toUpperCase();
+		else
+			textC[i] = textC[i].toLowerCase();
+		i++;
+	}
+    document.getElementById('textArea').value = textC.join("");
+}
+
 //FunnyC Function
 function funnyC(){
     let i=0;
